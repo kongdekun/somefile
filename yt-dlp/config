@@ -1,0 +1,13 @@
+--ignore-errors
+--external-downloader aria2c
+
+--external-downloader-args aria2c:'-c -j 3 -x 3 -s 3 -k 1M'
+
+-S "vcodec:av01,res:2160"
+
+#-f (((bestvideo[vcodec^=vp9][vcodec!=av01][height<=?2160])/bestvideo)+(bestaudio[acodec=opus]/bestaudio[acodec=vorbis]/bestaudio[acodec=aac]/bestaudio))/best
+
+
+--no-write-comments
+
+--cookies-from-browser chrome
