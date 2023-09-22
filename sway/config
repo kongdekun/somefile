@@ -25,7 +25,7 @@ set $term kitty --single-instance
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/kdk/picture/wallhaven-jx13zp_3840x2160.png  fill
+output * bg /home/kdk/.config/sway/wallhaven-jx13zp_3840x2160.png  fill
 #
 # Example configuration:
 #
