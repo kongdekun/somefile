@@ -1,0 +1,40 @@
+{
+    "[喵萌奶茶屋&LoliHouse] Helck S1": {
+        "addPaused": false,
+        "affectedFeeds": [
+            "https://mikanani.me/RSS/Bangumi?bangumiId=3071&subgroupid=370"
+        ],
+        "assignedCategory": "Bangumi",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "22 Sep 2023 05:52:36 +0800",
+        "mustContain": "Helck",
+        "mustNotContain": "720|\\d+-\\d",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "/home/kdk/data/Bangumi/Helck (2023)/Season 1",
+        "smartFilter": false,
+        "torrentContentLayout": null,
+        "useRegex": true
+    },
+    "[喵萌奶茶屋&LoliHouse] 我的幸福婚约 S1": {
+        "addPaused": false,
+        "affectedFeeds": [
+            "https://mikanani.me/RSS/MyBangumi?token=ERmiTYmgAx7db5JqvLCIWg%3d%3d"
+        ],
+        "assignedCategory": "Bangumi",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "Watashi\\ no\\ Shiawase\\ na\\ Kekkon",
+        "mustNotContain": "720|\\d+-\\d",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "/home/kdk/data/Bangumi/我的幸福婚约/Season 1",
+        "smartFilter": false,
+        "torrentContentLayout": null,
+        "useRegex": true
+    }
+}

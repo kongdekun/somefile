@@ -1,0 +1,113 @@
+{
+    "layer": "bottom",
+    "modules-left": ["sway/workspaces", "sway/mode","wlr/taskbar","custom/media"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["cava","network","wireplumber","cpu","memory","custom/updates", "clock","tray"],
+    "sway/window": {
+        "format": "{title}",
+        "max-length": 50
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "cava": {
+        "cava_config": "/home/kdk/.config/cava/config",
+        "framerate": 30,
+        "autosens": 1,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "bars": 14,
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 4,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+    "cpu": {
+    "interval": 1,
+    "format": "{icon} cpu",
+    "format-icons": [
+    "<span color='#69ff94'>▁</span>", // green
+    "<span color='#2aa9ff'>▂</span>", // blue
+    "<span color='#f8f8f2'>▃</span>", // white
+    "<span color='#f8f8f2'>▄</span>", // white
+    "<span color='#ffffa5'>▅</span>", // yellow
+    "<span color='#ffffa5'>▆</span>", // yellow
+    "<span color='#ff9977'>▇</span>", // orange
+    "<span color='#dd532e'>█</span>"  // red
+    ]
+    },
+    "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+    },
+    "custom/media": {
+    "format": "{icon}{}",
+    "return-type": "json",
+    "format-icons": {
+        "Playing": " ",
+        "Paused": " "
+    },
+    "max-length":70,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    },
+    "custom/updates": {
+       "format": "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+           "has-updates": "",
+           "updated": ""
+       },
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates"
+   },
+   "memory": {
+        "format": "{}% "
+    },
+    "network": {
+    //"interface": "wlp2s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+       "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+        "Firefox Web Browser": "Firefox",
+        "Foot Server": "Terminal"
+    }
+    }
+}
