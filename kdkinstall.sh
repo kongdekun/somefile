@@ -138,7 +138,9 @@ MOZ_ENABLE_WAYLAND=1" >>/etc/environment
 
 		echo "安装pacman软件"
 		sudo pacman -S kitty fcitx5 fcitx5-chinese-addons fcitx5-configtool \
-			   fcitx5-gtk fcitx5-qt adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-otc-fonts awesome-terminal-fonts cantarell-fonts noto-fonts noto-fonts-cjk powerline-fonts ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-ubuntu-nerd wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming dunst wireplumber pipewire-audio pipewire-jack pipewire-pulse pipewire-alsa pipewire-v4l2 pavucontrol helvum glfw-wayland qt5-wayland qt6-wayland vulkan-validation-layers wofi kdeconnect bluez blueman mpv mpv-mpris yt-dlp docker docker-compose aria2 zsh openssh mosh wget cmake emacs ripgrep libvterm pandoc npm clang bash-language-server shellcheck shfmt mesa vulkan-intel intel-media-driver libva-utils onevpl-intel-gpu intel-compute-runtime firefox vlc vim network-manager-applet sddm polkit lxqt-policykit intel-gpu-tools htop yad xdg-desktop-portal xdg-desktop-portal-wlr  || exit
+			   fcitx5-gtk fcitx5-qt adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-otc-fonts awesome-terminal-fonts cantarell-fonts noto-fonts noto-fonts-cjk powerline-fonts ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-ubuntu-nerd wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming \
+         dunst wireplumber pipewire-audio pipewire-jack pipewire-pulse pipewire-alsa pipewire-v4l2 pavucontrol helvum \
+         glfw-wayland qt5-wayland qt6-wayland vulkan-validation-layers wofi kdeconnect bluez blueman mpv mpv-mpris yt-dlp docker docker-compose aria2 zsh openssh mosh wget cmake emacs ripgrep libvterm pandoc npm clang bash-language-server shellcheck shfmt mesa vulkan-intel intel-media-driver libva-utils onevpl-intel-gpu intel-compute-runtime firefox vlc vim network-manager-applet sddm polkit lxqt-policykit intel-gpu-tools htop yad xdg-desktop-portal xdg-desktop-portal-wlr  || exit
 
 		echo "yay"
 		yay -Scc && yay -S wlroots-git && yay -S sway-git && yay -S swaybg-git && yay -S cava && yay -S waybar-cava waybar-module-pacman-updates-git autotiling wob danmaku2ass-git qbittorrent-enhanced-nox jellyfin jellyfin-ffmpeg6-bin cmake-language-server clipman || exit
@@ -253,7 +255,11 @@ MOZ_ENABLE_WAYLAND=1" >>/etc/environment
 		;;
 
 	6)
-		exit
+		#crossover
+      sudo pacman -S --asdeps unzip  lib32-alsa-lib  lib32-fontconfig  lib32-libcups  lib32-libdbus    lib32-libldap  lib32-libpulse  lib32-gnutls   lib32-libxcomposite  lib32-libxinerama  lib32-libxml2  lib32-libxslt  lib32-libxxf86vm    lib32-mpg123   lib32-openal  lib32-openssl  lib32-v4l-utils
+
+      yay -S lib32-libexif  lib32-gstreamer0.10  lib32-gstreamer0.10-base  lib32-nss-mdns  lib32-libxxf86dga 
+
 
 		;;
 	*)
