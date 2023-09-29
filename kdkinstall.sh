@@ -12,6 +12,7 @@ while true; do
 4.systeminstall-3 (native root firststart)
 5.systeminstall-4 (native kdk install application)
 6.after
+7.update sway
 "
 
 	read -p "请输入你的选择:(1-5)" char
@@ -140,8 +141,8 @@ MOZ_ENABLE_WAYLAND=1" >>/etc/environment
 		sudo pacman -S kitty fcitx5 fcitx5-chinese-addons fcitx5-configtool \
 			   fcitx5-gtk fcitx5-qt adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-otc-fonts awesome-terminal-fonts cantarell-fonts noto-fonts noto-fonts-cjk powerline-fonts ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-ubuntu-nerd wqy-microhei wqy-microhei-lite wqy-bitmapfont wqy-zenhei ttf-arphic-ukai ttf-arphic-uming \
          dunst wireplumber pipewire-audio pipewire-jack pipewire-pulse pipewire-alsa pipewire-v4l2 pavucontrol helvum \
-         glfw-wayland qt5-wayland qt6-wayland vulkan-validation-layers wofi kdeconnect bluez blueman mpv mpv-mpris yt-dlp docker docker-compose aria2 zsh openssh mosh wget cmake emacs ripgrep libvterm pandoc npm clang bash-language-server shellcheck shfmt mesa vulkan-intel intel-media-driver libva-utils onevpl-intel-gpu intel-compute-runtime firefox vlc vim network-manager-applet sddm polkit lxqt-policykit intel-gpu-tools htop yad xdg-desktop-portal xdg-desktop-portal-wlr  || exit
-
+         glfw-wayland qt5-wayland qt6-wayland vulkan-validation-layers wofi kdeconnect bluez blueman mpv mpv-mpris yt-dlp docker docker-compose aria2 zsh openssh mosh wget cmake emacs ripgrep libvterm pandoc npm clang bash-language-server shellcheck shfmt mesa vulkan-intel intel-media-driver libva-utils onevpl-intel-gpu intel-compute-runtime firefox vlc vim network-manager-applet sddm polkit lxqt-policykit intel-gpu-tools htop yad xdg-desktop-portal xdg-desktop-portal-wlr  fuse2 || exit
+s
 		echo "yay"
 		yay -Scc && yay -S wlroots-git && yay -S sway-git && yay -S swaybg-git && yay -S cava && yay -S waybar-cava waybar-module-pacman-updates-git autotiling wob danmaku2ass-git qbittorrent-enhanced-nox jellyfin jellyfin-ffmpeg6-bin cmake-language-server clipman || exit
 
@@ -153,8 +154,14 @@ MOZ_ENABLE_WAYLAND=1" >>/etc/environment
 
 		#sway
 		echo "sway"
-		sudo cp -aprv "$bak_path"/sway.desktop /usr/share/wayland-sessions
 		sudo cp -aprv "$bak_path"/.config/sway "$kdk_home"/.config || exit
+
+    sudo bash -c "echo '[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=env LANG=zh_CN.UTF-8  WLR_RENDERER=vulkan  sway
+Type=Application
+' > /usr/share/wayland-sessions/sway.desktop"
 
 		#waybar
 
@@ -262,6 +269,21 @@ MOZ_ENABLE_WAYLAND=1" >>/etc/environment
 
 
 		;;
+
+  7)
+      #update sway
+      yay -Scc && yay -S wlroots-git && yay -S sway-git && yay -S swaybg-git
+      sudo bash -c "echo '[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=env LANG=zh_CN.UTF-8  WLR_RENDERER=vulkan  sway
+Type=Application
+' > /usr/share/wayland-sessions/sway.desktop"
+
+
+
+      ;;
+  
 	*)
 		exit
 		;;
